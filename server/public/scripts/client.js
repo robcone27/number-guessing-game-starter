@@ -20,5 +20,21 @@ function getGuesses() {
 function postNewGuesses() {
     $.ajax({
         type: 'POST',
+        url: '/playerName',
+        data: {
+            number: $('#juliaInput').val(),
+            number: $('#jacobInput').val(),
+            number: $('#robInput').val(),
+            number: $('#emilyInput').val()
+        }
+    }).then(function(response) {
+        console.log('Great Success!!!', response);
+        // getGuesses()
+        number: $('#juliaInput').val(),
+            number: $('#jacobInput').val(),
+            number: $('#robInput').val(),
+            number: $('#emilyInput').val()
+    }).catch(function(response) {
+        alert('You Broke It!!!', response)
     })
 }
