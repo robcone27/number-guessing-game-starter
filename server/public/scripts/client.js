@@ -3,7 +3,7 @@ $(document).ready(handleReady);
 function handleReady() {
     console.log("jquery is loaded!")
     getGuesses();
-    $(`#submitButton`).on(`click`, getGuesses);
+    $(`#submitButton`).on(`click`, postNewGuesses);
 }
 
 function getGuesses() {
@@ -24,9 +24,9 @@ function postNewGuesses() {
         url: '/playerName',
         data: {
             juliaNumber: $(`#juliaInput`).val(),
-            // jacobNumber: $(`#jacobInput`).val(),
-            // robNumber: $(`#robInput`).val(),
-            // emilyNumber: $(`#emilyInput`).val()
+            jacobNumber: $(`#jacobInput`).val(),
+            robNumber: $(`#robInput`).val(),
+            emilyNumber: $(`#emilyInput`).val()
         }
     }).then(function(response) {
         console.log('Great Success!!!');
