@@ -12,7 +12,7 @@ function getGuesses() {
         url: '/playerName'
     }).then(function(response) {
         console.log('successful response', response);
-        renderToDOM();
+        renderToDOM(response);
     }).catch(function(response) {
         alert('Im broken!!!!! :(');
     })
@@ -40,19 +40,19 @@ function postNewGuesses() {
     })
 }
 
-function renderToDOM() {
-    // $(`#juliaContainer`).empty();
+function renderToDOM(guesses) {
+    $(`#juliaContainer`).empty();
     // $(`#jacobContainer`).empty();
     // $(`#robContainer`).empty();
     // $(`#emilyContainer`).empty();
 
-    // for (let guess of guesses) {
-    $(`#juliaContainer`).append(
-        `<p>
-                ${playerName}
+    for (let guess of guesses) {
+        $(`#juliaContainer`).append(
+            `<p>
+                ${guess.juliaNumber}
             </p>`
-    );
+        );
 
-    // }
+    }
 
 }; //end render loop
